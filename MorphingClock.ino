@@ -166,6 +166,6 @@ void loop() {
   Serial.println(B);
   Serial.print("---------------------");
   update = true;
+  }
  }
-}
 }
