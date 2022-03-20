@@ -110,7 +110,7 @@ void loop() {
   hh = ntpClient.GetHours();
   mm = ntpClient.GetMinutes();
   ss = ntpClient.GetSeconds();
-  if (ss == prevss && mm == prevmm && hh == prevhh) { // If we didn't have a previous time. Just draw it without morphing.
+  if (ss == prevss && mm == prevmm && hh == prevhh) { // If current time is the same as previous draw it without morphing.
    digit0.Draw(ss % 10);
    digit1.Draw(ss / 10);
    digit2.Draw(mm % 10);
