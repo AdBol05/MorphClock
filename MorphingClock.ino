@@ -1,8 +1,6 @@
 // Morphing Clock by Hari Wiguna, July 2018
 // Modified at Laborky.cz 2021/2022 by Adam Bolemant
-
-//define RGB values
-unsigned int R = 11;
+unsigned int R = 11; //default display colour
 unsigned int G = 100;
 unsigned int B = 35;
 // exception in NTPClient.cpp on line 135
@@ -48,7 +46,6 @@ PxMATRIX display(64, 32, P_LAT, P_OE, P_A, P_B, P_C, P_D, P_E);
 // ISR for display refresh
 void display_updater()
 {
-  //display.displayTestPattern(70);
   display.display(70);
 }
 #endif
@@ -57,15 +54,12 @@ void display_updater()
 void IRAM_ATTR display_updater() {
   // Increment the counter and set the time of ISR
   portENTER_CRITICAL_ISR(&timerMux);
-  //isplay.display(70);
   display.displayTestPattern(70);
   portEXIT_CRITICAL_ISR(&timerMux);
 }
 #endif
 
-//=== SEGMENTS ===
 #include "Digit.h"
-//=== CLOCK ===
 #include "NTPClient.h"
 NTPClient ntpClient;
 unsigned long prevEpoch;
@@ -73,11 +67,9 @@ byte prevhh = 99;
 byte prevmm = 99;
 byte prevss = 99;
 
-
 void setup() {
   Serial.begin(9600);
   display.begin(16);
-
 #ifdef ESP8266
   display_ticker.attach(0.002, display_updater);
 #endif
@@ -91,7 +83,6 @@ void setup() {
 
    ntpClient.Setup(&display);
    display.fillScreen(display.color565(0, 0, 0));
-
 }
 
 
