@@ -141,22 +141,22 @@ void loop() {
       if (h1!=digit5.Value()) digit5.Morph(h1);
       prevhh = hh;
     }
- }
- analog = analogRead(0);
- if(analog == 0){ //set random display colour (based on analog input)
-  Serial.println("---------------------"); 
-  Serial.println("RGBvalues:");
-  R = random(256);
-  G = random(256);
-  B = random(256);
-  Serial.print("R: ");
-  Serial.println(R);
-  Serial.print("G: ");
-  Serial.println(G);
-  Serial.print("B: ");
-  Serial.println(B);
-  Serial.print("---------------------");
-  update = true;
+  }
+  analog = analogRead(0);
+  if(analog == 0){ //set random display colour (based on analog input)
+   Serial.println("---------------------"); 
+   Serial.println("RGBvalues:");
+   R = random(256);
+   G = random(256);
+   B = random(256);
+   Serial.print("R: ");
+   Serial.println(R);
+   Serial.print("G: ");
+   Serial.println(G);
+   Serial.print("B: ");
+   Serial.println(B);
+   Serial.print("---------------------");
+   update = true;
   }
  }
 }
