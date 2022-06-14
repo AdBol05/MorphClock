@@ -70,6 +70,7 @@ byte prevss = 99;
 void setup() {
   Serial.begin(9600);
   display.begin(16);
+  pinMode(10, INPUT_PULLUP);
 #ifdef ESP8266
   display_ticker.attach(0.002, display_updater);
 #endif
@@ -87,7 +88,6 @@ void setup() {
 
 
 void loop() {
- randomSeed(analogRead(0));
  Digit digit0(&display, 0, 63 - 1 - 9*1, 8, display.color565(R, G, B));
  Digit digit1(&display, 0, 63 - 1 - 9*2, 8, display.color565(R, G, B));
  Digit digit2(&display, 0, 63 - 4 - 9*3, 8, display.color565(R, G, B));
@@ -103,7 +103,7 @@ void loop() {
  digit3.DrawColon(display.color565(R, G, B));
  update = false;
  delay(1000);
- 
+
  while(update == false){
   epoch = ntpClient.GetCurrentTime();
   if (epoch != 0) ntpClient.PrintTime();
@@ -142,13 +142,14 @@ void loop() {
       prevhh = hh;
     }
   }
-  analog = analogRead(0);
-  if(analog == 0){ //set random display colour (based on analog input)
+  //analog = analogRead(0);
+  if(digitalRead(10) == LOW){ //set random display colour (based on analog input)
+   randomSeed(analogRead(0));
    Serial.println("---------------------"); 
    Serial.println("RGBvalues:");
-   R = random(256);
-   G = random(256);
-   B = random(256);
+   R = random(0, 255);
+   G = random(0, 255);
+   B = random(0, 255);
    Serial.print("R: ");
    Serial.println(R);
    Serial.print("G: ");
