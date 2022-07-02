@@ -1,5 +1,5 @@
 # MorphClock
-HariFun Morphing Clock with button to change display colour to random
+HariFun Morphing Clock with button for display random colour 
 
 # Dependencies: 
 
