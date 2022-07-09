@@ -144,11 +144,13 @@ void loop() {
   }
   //analog = analogRead(0);
   if(digitalRead(10) == LOW){ //set random display colour (based on analog input)
-   randomSeed(analogRead(0));
    Serial.println("---------------------"); 
    Serial.println("RGBvalues:");
+   randomSeed(analogRead(0));
    R = random(0, 255);
+   randomSeed(analogRead(0));
    G = random(0, 255);
+   randomSeed(analogRead(0));
    B = random(0, 255);
    Serial.print("R: ");
    Serial.println(R);
