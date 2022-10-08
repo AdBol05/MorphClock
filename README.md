@@ -6,15 +6,15 @@ https://www.instructables.com/Morphing-Digital-Clock/
 
 # Dependencies: 
 
-ESP8266 core@2.3.0
+ESP8266 core @ 2.3.0
 
-PxMatrix_LED_MATRIX_library@1.3.0
+PxMatrix_LED_MATRIX_library @ 1.3.0
 
-Adafruit_GFX_Library@1.5.7
+Adafruit_GFX_Library @ 1.5.7
 
-WiFiManager@0.15.0-beta
+WiFiManager @ 0.15.0-beta
 
-DoubleResetDetector@1.0.2
+DoubleResetDetector @ 1.0.2
 
-ArduinoJson@5.13.2
+ArduinoJson @ 5.13.2
 
